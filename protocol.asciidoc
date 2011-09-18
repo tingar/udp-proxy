@@ -6,7 +6,7 @@ Aaron Fellin <aaron@tingar.uni.cx>
 Packet Header
 -------------
 
-...
+---
 +--------------------------------+
 |0         1         2         3 |
 |01234567890123456789012345678901|
@@ -21,7 +21,7 @@ Packet Header
 +--------+-------+---------------+
 | ...                            |
 +--------------------------------+
-...
+---
 
 0xd9fa 1400 0200 - Game Query (checksummed, but always 0xd9fa 1400)
 
@@ -41,37 +41,37 @@ Game Query:
 Game Announce:
 ~~~~~~~~~~~~~~
 
-...
-@255.255.255.255:6111 0x e671 5a00 0000 0000 5058 4553 d300 0000
-//Game spec//
-0000                   // player status? 0600 => full; 0400 => open; 0000 => new
-0000
-5469 6e67 6172 002c    (Tingar.,) // player name, NUL terminated
-3433 2c                (43,) // size of map (h,w)
-3132 2c                (12,) // players (curr,max)
-332c                   (3,) // Game Speed
-312c                   (1,)
-662c                   (f,) // Game Mode
-2c                     (,)
-312c                   (1,) // Mode sub-option (1-indexed)
-3561 6235 3433 3862 2c (5ab5438b,)
-312c                   (1,)
-2c                     (,)
-5469 6e67 6172 0d41
++@255.255.255.255:6111 0x e671 5a00 0000 0000 5058 4553 d300 0000+
+
+Game Spec
+
+|=================================================================================
+|0000                   | | player status? 0600 => full; 0400 => open; 0000 => new
+|0000
+|5469 6e67 6172 002c    | (Tingar.,)  | player name, NUL terminated
+|3433 2c                | (43,)       | size of map (h,w)
+|3132 2c                | (12,)       | players (curr,max)
+|332c                   | (3,)        | Game Speed
+|312c                   | (1,)
+|662c                   | (f,)        | Game Mode
+|2c                     | (,)
+|312c                   | (1,)        | Mode sub-option (1-indexed)
+|3561 6235 3433 3862 2c | (5ab5438b,) |
+|312c                   | (1,)        |
+|2c                     | (,)         |
+|5469 6e67 6172 0d41
 7374 7261 6c20 4261
 6c61 6e63 650d 00
-(Tingar Astral Balance.) // map name, NUL terminated
-0c00 0000 0100 0000 0200 0000 // unknown
-/* end Game spec */
-...
+|(Tingar Astral Balance.) | map name, NUL terminated
+|0c00 0000 0100 0000 0200 0000 | | unknown
+|=================================================================================
 
 Game Closed:
 ~~~~~~~~~~~~
 
-...
-@255.255.255.255:6111 0x e96d 5a00 0100 0000 5058 4553 d300 0000 0000 0000
++@255.255.255.255:6111 0x e96d 5a00 0100 0000 5058 4553 d300 0000 0000 0000+
+
 Game spec
-...
 
 
 Protocol
