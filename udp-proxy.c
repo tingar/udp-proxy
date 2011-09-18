@@ -1,3 +1,8 @@
+/*
+ * I cannot claim credit for this program; it was shamelessly stolen from:
+ *
+ * http://www.vttoth.com/tunnel.htm
+ */
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
