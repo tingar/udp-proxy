@@ -47,22 +47,22 @@ Game Spec
 
 |=================================================================================
 |0000                   | | player status? 0600 => full; 0400 => open; 0000 => new
-|0000                   |             |
+|0000                   |             | unknown
 |5469 6e67 6172 002c    | (Tingar.,)  | player name, NUL terminated
 |3433 2c                | (43,)       | size of map (h,w)
 |3132 2c                | (12,)       | players (curr,max)
-|332c                   | (3,)        | Game Speed
-|312c                   | (1,)        |
-|662c                   | (f,)        | Game Mode
-|2c                     | (,)         |
+|332c                   | (3,)        | [[Game Speed]]
+|312c                   | (1,)        | unknown
+|662c                   | (f,)        | <<Game Mode>>
+|2c                     | (,)         | unknown
 |312c                   | (1,)        | Mode sub-option (1-indexed)
-|3561 6235 3433 3862 2c | (5ab5438b,) |
-|312c                   | (1,)        |
-|2c                     | (,)         |
+|3561 6235 3433 3862 2c | (5ab5438b,) | unknown
+|312c                   | (1,)        | unknown
+|2c                     | (,)         | unknown
 |5469 6e67 6172 0d41
 7374 7261 6c20 4261
 6c61 6e63 650d 00
-| (Tingar Astral Balance.) | map name, NUL terminated
+|(Tingar Astral Balance.) | map name, NUL terminated
 |0c00 0000 0100 0000 0200 0000 | | unknown
 |=================================================================================
 
@@ -74,12 +74,14 @@ Game Closed:
 Game spec
 
 
+[[Protocol]]
 Protocol
 --------
 
 Client A (waiting for game): every 1s, send a game query
 
 
+[[Game Mode]]
 Game Modes
 ----------
 
@@ -99,8 +101,9 @@ Team FFA::         c
 Team CtF::         d
 
 
-Speeds
-------
+[[Game Speed]]
+Game Speeds
+-----------
 
 Slowest:: 0
 Slower::  1
