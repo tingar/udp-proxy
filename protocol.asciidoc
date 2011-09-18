@@ -1,0 +1,87 @@
+StarCraft Protocol Spec
+=======================
+Aaron Fellin <aaron@tingar.uni.cx>
+
+
+Packet Header
+-------------
+
+0xd9fa 1400 0200 - Game Query (checksummed, but always 0xd9fa 1400)
+0xXXXX XXXX 0000 - Game Announce (XXXX are checksum?)
+0xXXXX XXXX 0100 - Game Retract  (XXXX are checksum?)
+
+Packet Types
+------------
+
+Game Query:
+
+@255.255.255.255:6111 0x d9fa 1400 0200 0000 5058 4553 d300 0000 0000 0000
+
+250 217 20 0 2 0 0 0 80 88 69 83 211 0 0 0 0 0 0 0
+250 217 " " NUL 2 NUL NUL NUL "P" "X" "E" "S" 211 NUL NUL NUL NUL NUL NUL NUL
+
+
+Game Announce:
+
+@255.255.255.255:6111 0x e671 5a00 0000 0000 5058 4553 d300 0000
+/* Game spec */
+0000                   // player status? 0600 => full; 0400 => open; 0000 => new
+0000
+5469 6e67 6172 002c    (Tingar.,) // player name, NUL terminated
+3433 2c                (43,) // size of map (h,w)
+3132 2c                (12,) // players (curr,max)
+332c                   (3,) // Game Speed
+312c                   (1,)
+662c                   (f,) // Game Mode
+2c                     (,)
+312c                   (1,) // Mode sub-option (1-indexed)
+3561 6235 3433 3862 2c (5ab5438b,)
+312c                   (1,)
+2c                     (,)
+5469 6e67 6172 0d41
+7374 7261 6c20 4261
+6c61 6e63 650d 00
+(Tingar Astral Balance.) // map name, NUL terminated
+0c00 0000 0100 0000 0200 0000 // unknown
+/* end Game spec */
+
+Game Closed:
+@255.255.255.255:6111 0x e96d 5a00 0100 0000 5058 4553 d300 0000 0000 0000
+Game spec
+
+
+Protocol
+--------
+
+Client A (waiting for game): every 1s, send a game query
+
+
+Game Modes
+----------
+
+ASCII Game Mode codes (1 byte)
+
+Top vs Bottom::    f
+Melee::            2
+Free for All::     3
+One on One::       4
+Use Map Settings:: a
+Capture the Flag:: 5
+Greed::            6
+Slaughter::        7
+Sudden Death::     8
+Team Melee::       b
+Team FFA::         c
+Team CtF::         d
+
+
+Speeds
+------
+
+Slowest:: 0
+Slower::  1
+Slow::    2
+Normal::  3
+Fast::    NUL
+Faster::  5
+Fastest:: 6
