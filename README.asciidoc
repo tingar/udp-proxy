@@ -1,0 +1,26 @@
+UDP Starcraft Proxy
+===================
+Aaron Fellin <aaron@tingar.uni.cx>
+v0.1, September 2011
+
+
+Synopsis
+--------
+
+A proxy for replaying UDP packets, designed to allow StarCraft to be
+played in LAN mode over the internet. There is also a packet inspection
+tool specifically designed for UDP. Probably later will come a game
+browser.
+
+
+Usage
+-----
+
+Ideally: ./forward.sh IP
+
+This should be run on a box that is not used for StarCraft, and is on the
+same LAN as the other machines that are playing. For example, create a
+virtual LAN, and then use those machines to forward UDP packets out to
+everyone playing the game. As soon as a game is created on this network,
+all listening clients should pick it up. For this reason, UDP injection
+of broadcast packets flowing the other direction is an eventual goal.
