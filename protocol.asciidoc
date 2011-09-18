@@ -51,7 +51,7 @@ Game Spec
 |5469 6e67 6172 002c    | (Tingar.,)  | player name, NUL terminated
 |3433 2c                | (43,)       | size of map (h,w)
 |3132 2c                | (12,)       | players (curr,max)
-|332c                   | (3,)        | [[Game Speed]]
+|332c                   | (3,)        | <<Game Speed>>
 |312c                   | (1,)        | unknown
 |662c                   | (f,)        | <<Game Mode>>
 |2c                     | (,)         | unknown
